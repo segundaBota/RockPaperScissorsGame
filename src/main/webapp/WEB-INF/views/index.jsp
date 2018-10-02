@@ -15,7 +15,7 @@
 		<h1>
 			<c:out value="${title}" />
 		</h1>
-		<h2>${title}</h2>
+		<h2><button onclick="register.htm" value="Register">${subtitle}</button></h2>
 	</div>
 
 </body>
