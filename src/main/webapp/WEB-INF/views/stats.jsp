@@ -18,9 +18,10 @@
 
 	<h1>${statsTitle}</h1>
 
-	Computer wins accumulator: <c:out value="${gameService.computerWinsAcc}"/> <br>
-	Computer wins accumulator: <c:out value="${gameService.playerWinsAcc}"/> <br>
-	Total Games: <c:out value="${gameService.gamesAcc}"/> <br>
+	<c:out value="${computerAcc}"/> <c:out value="${gameService.computerWinsAcc}"/> <br>
+	<c:out value="${playerrAcc}"/> <c:out value="${gameService.playerWinsAcc}"/> <br>
+	<c:out value="${drawsAcc}"/> <c:out value="${gameService.drawsAcc}"/> <br>
+	<c:out value="${totalAcc}"/> <c:out value="${gameService.gamesAcc}"/> <br>
 	<a href="/goBack">${ret}</a>
 	</div>
 </body>

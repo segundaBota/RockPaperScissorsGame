@@ -13,16 +13,18 @@ import com.jle.rps.repositories.GameRepository;
 public class GameService {
 	
 	@Autowired
-	GameRepository gameRepository;
+	private GameRepository gameRepository;
 	
 	private int computerWinsAcc;
 	private int playerWinsAcc;
 	private int gamesAcc;
+	private int drawsAcc;
 
 	public GameService() {
 		computerWinsAcc = 0;
 		playerWinsAcc = 0;
 		gamesAcc = 0;
+		drawsAcc = 0;
 	}
 
 	public ArrayList<Game> playGame() {
@@ -35,8 +37,9 @@ public class GameService {
 			playerWinsAcc++;
 		if (game.getResult().equals(RESULTS.LOSE))
 			computerWinsAcc++;
-	
-		
+		if (game.getResult().equals(RESULTS.DRAW))
+			drawsAcc++;
+
 		return gameRepository.getGames();
 	}
 
@@ -66,6 +69,14 @@ public class GameService {
 
 	public void setGamesAcc(int gamesAcc) {
 		this.gamesAcc = gamesAcc;
+	}
+
+	public int getDrawsAcc() {
+		return drawsAcc;
+	}
+
+	public void setDrawsAcc(int drawsAcc) {
+		this.drawsAcc = drawsAcc;
 	}
 
 }
