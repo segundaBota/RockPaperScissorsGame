@@ -10,10 +10,8 @@ public class Game {
 	private CHOICES playerChoice;
 	private CHOICES computerChoice;
 	private RESULTS result;
-	private int wins, loses, draws;
 	
 	public Game() {
-		wins=0; loses=0; draws=0;
 	}
 
 	public void play() {
@@ -23,20 +21,20 @@ public class Game {
 		switch (choice) {
 		case 1:
 			playerChoice = CHOICES.ROCK;
+			break;
 		case 2:
 			playerChoice = CHOICES.PAPER;
+			break;
 		case 3:
 			playerChoice = CHOICES.SCISSORS;
+			break;
 		}
 
 		//Second step: Computer choice is always ROCK
 		computerChoice = CHOICES.ROCK;
 
 		//Third step: Obtain the result
-		result = getResult();
-
-		//Last step: Calculate stats
-		calculateStats();
+		this.result = getResult();
 	}
 
 	public RESULTS getResult() {
@@ -48,12 +46,23 @@ public class Game {
 			return RESULTS.LOSE;
 	}
 
-	public void calculateStats() {
-		if (result == RESULTS.WIN)
-			wins++;
-		else if (result == RESULTS.LOSE)
-			loses++;
-		else
-			draws++;
+	public CHOICES getPlayerChoice() {
+		return playerChoice;
+	}
+
+	public void setPlayerChoice(CHOICES playerChoice) {
+		this.playerChoice = playerChoice;
+	}
+
+	public CHOICES getComputerChoice() {
+		return computerChoice;
+	}
+
+	public void setComputerChoice(CHOICES computerChoice) {
+		this.computerChoice = computerChoice;
+	}
+
+	public void setResult(RESULTS result) {
+		this.result = result;
 	}
 }
